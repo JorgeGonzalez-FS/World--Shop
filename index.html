@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Shop · Catálogo digital (propuesta)</title>
+<meta name="description" content="Propuesta de catálogo digital para World Shop: teléfonos, tecnología y línea blanca con consulta directa por WhatsApp.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#catalogo">Saltar al catálogo</a>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#inicio" aria-label="World Shop, inicio"><img src="assets/logo/worldshop-logo-provisional.png" alt="World Shop" height="34"></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">☰</button>
+    <nav id="nav" class="nav" aria-label="Principal">
+      <a href="#categorias">Categorías</a><a href="#catalogo">Catálogo</a><a href="#promociones">Financiamiento</a>
+      <a href="#envios">Envíos</a><a href="#pagos">Pagos</a><a href="#sucursales">Sucursales</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn ghost small" id="btnTasa">Tasa BCV: <span id="tasaLabel">sin definir</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow"><span class="dot"></span> Teléfonos · Tecnología · Línea blanca</p>
+    <h1>Todo lo que buscas, <em>al mejor precio</em> y a un mensaje de distancia.</h1>
+    <p class="lead">Explora <strong id="totalProd">—</strong> productos con precio en dólares y bolívares, compara modelos y habla con un vendedor por WhatsApp en segundos.</p>
+    <div class="hero-cta"><a class="btn big" href="#catalogo">Explorar catálogo →</a><a class="btn ghost big" href="#sucursales">Encuentra tu tienda</a></div>
+    <ul class="stats"><li><b>5</b><span>sucursales</span></li><li><b id="stCat">19</b><span>categorías</span></li><li><b id="stMarca">—</b><span>marcas</span></li><li><b>0%</b><span>inicial con Cashea</span></li><li><b>Gratis</b><span>delivery en Pto. Ordaz y San Félix</span></li></ul>
+  </div>
+</section>
+<div class="marquee" aria-hidden="true"><div id="marq"></div></div>
+
+<section id="categorias" class="sec"><div class="wrap">
+  <h2>Categorías</h2>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+  <h2>Productos destacados</h2>
+  <div class="grid" id="destacados"></div>
+</div></section>
+
+<section id="catalogo" class="sec"><div class="wrap">
+  <h2>Catálogo completo</h2>
+  <form class="filters" id="filtros" role="search" onsubmit="return false">
+    <label class="f-search"><span class="sr">Buscar</span><input id="q" type="search" placeholder="Buscar por nombre, marca, modelo o código (ej. iPhone 17, LNB043)" autocomplete="off"></label>
+    <label><span>Línea</span><select id="fLinea"><option value="">Todas</option></select></label>
+    <label><span>Categoría</span><select id="fCat"><option value="">Todas</option></select></label>
+    <label><span>Marca</span><select id="fMarca"><option value="">Todas</option></select></label>
+    <label><span>Precio mín. (USD)</span><input id="pMin" type="number" min="0" inputmode="numeric" placeholder="0"></label>
+    <label><span>Precio máx. (USD)</span><input id="pMax" type="number" min="0" inputmode="numeric" placeholder="∞"></label>
+    <label><span>Ordenar por</span>
+      <select id="orden"><option value="rel">Relevancia</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option><option value="nombre">Nombre</option><option value="marca">Marca</option></select></label>
+    <button type="button" class="btn ghost small" id="limpiar">Limpiar filtros</button>
+  </form>
+  <p class="count" id="contador" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+  <div class="more"><button class="btn" id="mas">Ver más productos</button></div>
+</div></section>
+
+<section id="promociones" class="sec alt"><div class="wrap">
+  <h2>Financiamiento</h2>
+  <div class="cards2">
+    <article class="card-p fin"><span class="badge">Cashea · 0% de inicial</span><h3>Compra ahora, paga en cuotas</h3>
+      <table class="lv"><thead><tr><th>Nivel</th><th>Cuotas</th></tr></thead><tbody>
+      <tr><td>Nivel 3</td><td>6 cuotas</td></tr><tr><td>Nivel 4</td><td>6 cuotas</td></tr><tr><td>Nivel 5</td><td>9 cuotas</td></tr><tr><td>Nivel 6</td><td>12 cuotas</td></tr></tbody></table>
+      <p class="muted">Disponible para niveles 3, 4, 5 y 6 sin pago inicial.</p></article>
+    <article class="card-p fin"><span class="badge">Krece</span><h3>También financiamos con Krece</h3>
+      <p>Trabajamos Krece con sus normas habituales. Pregunta en tienda o por WhatsApp y te ayudamos a tramitarlo.</p>
+      <a class="btn small wa" target="_blank" rel="noopener" id="waKrece">Consultar Krece</a></article>
+    <article class="card-p fin"><span class="badge">Atención directa</span><h3>Cotiza tu equipo</h3>
+      <p>Elige el producto, compáralo y escríbenos: un vendedor te confirma disponibilidad, método de pago y financiamiento.</p>
+      <a class="btn small" href="#catalogo">Ver catálogo</a></article>
+  </div>
+  <p class="muted">Sujeto a aprobación y condiciones de cada plataforma. Disponibilidad de productos para financiar: por confirmar en tienda.</p>
+</div></section>
+
+<section id="envios" class="sec"><div class="wrap">
+  <h2>Delivery y envíos</h2>
+  <div class="cards2">
+    <article class="card-p fin"><span class="badge">Sin costo</span><h3>Delivery gratis en Puerto Ordaz y San Félix</h3>
+      <p>Te llevamos tu compra a cualquier parte de Puerto Ordaz o San Félix, sin ningún costo.</p></article>
+    <article class="card-p fin"><span class="badge">Todo Venezuela</span><h3>Enviamos a cualquier parte del país</h3>
+      <p>Mandamos cualquier producto a cualquier parte de Venezuela mediante <b>Zoom</b> y <b>MRW</b>.</p>
+      <a class="btn small wa" target="_blank" rel="noopener" id="waEnvio">Consultar envío</a></article>
+  </div>
+</div></section>
+
+<section id="pagos" class="sec"><div class="wrap">
+  <h2>Métodos de pago</h2>
+  <ul class="pay">
+    <li>Dólares físicos</li><li>USDT</li><li>PayPal</li><li>Zelle</li><li>Bolívares a tasa BCV</li>
+  </ul>
+  <p class="muted">Los precios de la lista están en dólares. El equivalente en bolívares se calcula con la tasa BCV que se configure arriba y puede cambiar. Las condiciones por método (comisiones, descuentos) deben confirmarse con World Shop antes de publicarse.</p>
+</div></section>
+
+<section id="sucursales" class="sec alt"><div class="wrap">
+  <h2>Sucursales</h2>
+  <div class="cards2" id="sucursales"></div>
+  <p class="muted">Direcciones y horarios exactos: por verificar con la empresa. Los enlaces abren una búsqueda en Google Maps.</p>
+</div></section>
+
+<section id="contacto" class="sec"><div class="wrap">
+  <h2>Atención al cliente</h2>
+  <div class="contact">
+    <form id="formContacto" class="cform">
+      <label>Tu nombre<input name="nombre" required autocomplete="name"></label>
+      <label>¿Qué buscas?<textarea name="mensaje" rows="3" required placeholder="Ej. Quiero un aire split de 12.000 BTU, ¿qué opciones tienen?"></textarea></label>
+      <label>Sucursal de interés<select name="sucursal" id="selSuc"></select></label>
+      <button class="btn" type="submit">Enviar por WhatsApp</button>
+    </form>
+    <div class="phones"><h3>Teléfonos que aparecen en las listas</h3><ul id="telefonos"></ul>
+      <p class="muted">No está confirmado cuáles son WhatsApp ni a qué sucursal pertenece cada línea.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer class="ftr"><div class="wrap">
+  <img src="assets/logo/worldshop-logo-provisional.png" alt="World Shop" height="28" class="ftr-logo">
+  <p>Propuesta de diseño de catálogo digital para World Shop. Precios y disponibilidad sujetos a confirmación en tienda.</p>
+  <p class="muted">Redes sociales oficiales: por verificar.</p>
+</div></footer>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">WhatsApp</a>
+
+<div class="bar" id="compBar" hidden><span id="compTxt"></span><button class="btn small" id="compVer">Comparar</button><button class="btn ghost small" id="compClr">Vaciar</button></div>
+
+<dialog id="dlg"><div class="dlg-in"><button class="x" id="dlgX" aria-label="Cerrar">✕</button><div id="dlgBody"></div></div></dialog>
+<dialog id="dlgTasa"><div class="dlg-in"><button class="x" data-close aria-label="Cerrar">✕</button>
+  <h3>Tasa BCV</h3><p class="muted">Introduce la tasa oficial vigente (Bs. por USD). No se incluye una tasa por defecto para no mostrar datos desactualizados.</p>
+  <label>Bs. por USD<input id="tasaIn" type="number" step="0.01" min="0" inputmode="decimal"></label>
+  <label>Fecha de la tasa<input id="tasaFecha" type="date"></label>
+  <div class="row"><button class="btn" id="tasaOk">Guardar</button><button class="btn ghost" id="tasaBorrar">Quitar tasa</button></div></div></dialog>
+
+<script src="js/products.js"></script>
+<script src="js/images.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
