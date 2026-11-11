@@ -5,10 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>World Shop · Catálogo digital (propuesta)</title>
 <meta name="description" content="Propuesta de catálogo digital para World Shop: teléfonos, tecnología y línea blanca con consulta directa por WhatsApp.">
+<link rel="icon" type="image/png" href="assets/logo/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo/favicon.png">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<div id="aviso" style="background:#fff3cd;color:#664d03;border:2px solid #ffda6a;padding:14px;font:16px/1.4 Arial,sans-serif;margin:0">
+<b>La página se abrió incompleta.</b> Esto pasa cuando abres <code>index.html</code> dentro del ZIP o fuera de su carpeta. Solución: haz clic derecho en <code>world-shop.zip</code> → <b>Extraer todo…</b>, abre la carpeta extraída <code>world-shop</code> y entonces abre <code>index.html</code>. O abre directamente <b>World-Shop-TODO-EN-UNO.html</b>, que funciona solo.</div>
 <a class="skip" href="#catalogo">Saltar al catálogo</a>
+<div class="annc" role="region" aria-label="Avisos"><div class="annc-t" id="annc"><span>🚚 Delivery GRATIS en Puerto Ordaz y San Félix</span><span>💳 Cashea con 0% de inicial · También Krece</span><span>📦 Enviamos a toda Venezuela por Zoom y MRW</span><span>💬 Cotiza por WhatsApp en segundos</span></div></div>
 <header class="hdr">
   <div class="wrap hdr-in">
     <a class="logo" href="#inicio" aria-label="World Shop, inicio"><img src="assets/logo/worldshop-logo-provisional.png" alt="World Shop" height="34"></a>
@@ -24,15 +29,34 @@
 <main id="inicio">
 <section class="hero">
   <div class="glow g1"></div><div class="glow g2"></div>
-  <div class="wrap hero-in">
+  <div class="wrap hero-in hero-grid"><div class="hero-txt">
     <p class="eyebrow"><span class="dot"></span> Teléfonos · Tecnología · Línea blanca</p>
-    <h1>Todo lo que buscas, <em>al mejor precio</em> y a un mensaje de distancia.</h1>
+    <h1>Tus <span class="rotw"><em id="rot">teléfonos</em></span> al mejor precio, a un mensaje de distancia.</h1>
     <p class="lead">Explora <strong id="totalProd">—</strong> productos con precio en dólares y bolívares, compara modelos y habla con un vendedor por WhatsApp en segundos.</p>
     <div class="hero-cta"><a class="btn big" href="#catalogo">Explorar catálogo →</a><a class="btn ghost big" href="#sucursales">Encuentra tu tienda</a></div>
-    <ul class="stats"><li><b>5</b><span>sucursales</span></li><li><b id="stCat">19</b><span>categorías</span></li><li><b id="stMarca">—</b><span>marcas</span></li><li><b>0%</b><span>inicial con Cashea</span></li><li><b>Gratis</b><span>delivery en Pto. Ordaz y San Félix</span></li></ul>
-  </div>
+    <ul class="stats"><li><b>5</b><span>sucursales</span></li><li><b id="stCat">19</b><span>categorías</span></li><li><b id="stMarca">—</b><span>marcas</span></li><li><b>0%</b><span>inicial con Cashea</span></li><li><b>Gratis</b><span>delivery en Pto. Ordaz y San Félix</span></li></ul></div>
+    <div class="scene" id="scene" aria-label="Vista 3D de productos destacados">
+      <div class="stage" id="stage">
+        <div class="ring r1"></div><div class="ring r2"></div>
+        <button class="dev phone" data-code="TLF011" aria-label="Ver iPhone"><i class="notch"></i><i class="scr"></i><i class="cam"></i><span class="tag"></span></button>
+        <button class="dev tv" data-code="LNB861" aria-label="Ver televisor"><i class="scr"></i><i class="stand"></i><span class="tag"></span></button>
+        <button class="dev ac" data-code="LNB099" aria-label="Ver aire acondicionado"><i class="vent"></i><i class="led"></i><span class="tag"></span></button>
+        <button class="dev fridge" data-code="LNB539" aria-label="Ver refrigerador"><i class="door a"></i><i class="door b"></i><span class="tag"></span></button>
+        <button class="dev lap" data-code="LTP043" aria-label="Ver laptop"><i class="scr"></i><i class="base"></i><span class="tag"></span></button>
+        <i class="pt p1"></i><i class="pt p2"></i><i class="pt p3"></i><i class="pt p4"></i><i class="pt p5"></i><i class="pt p6"></i>
+      </div>
+    </div>
+  
+</div>
 </section>
 <div class="marquee" aria-hidden="true"><div id="marq"></div></div>
+
+<section class="benef"><div class="wrap benef-in">
+  <div><b>🚚 Delivery gratis</b><span>Puerto Ordaz y San Félix</span></div>
+  <div><b>💳 Cashea y Krece</b><span>0% de inicial con Cashea</span></div>
+  <div><b>📦 Envíos nacionales</b><span>Zoom y MRW a todo el país</span></div>
+  <div><b>💬 Atención directa</b><span>Un vendedor por WhatsApp</span></div>
+</div></section>
 
 <section id="categorias" class="sec"><div class="wrap">
   <h2>Categorías</h2>
@@ -46,6 +70,9 @@
 
 <section id="catalogo" class="sec"><div class="wrap">
   <h2>Catálogo completo</h2>
+  <div class="quick" id="quick" aria-label="Atajos de precio">
+    <span>Atajos:</span><button type="button" data-p="0-200">Hasta $200</button><button type="button" data-p="200-500">$200 – $500</button><button type="button" data-p="500-1000">$500 – $1.000</button><button type="button" data-p="1000-">Más de $1.000</button><button type="button" data-q="iphone">iPhone</button><button type="button" data-q="samsung">Samsung</button><button type="button" data-q="aire split">Aires Split</button><button type="button" data-q="televisor">Televisores</button>
+  </div>
   <form class="filters" id="filtros" role="search" onsubmit="return false">
     <label class="f-search"><span class="sr">Buscar</span><input id="q" type="search" placeholder="Buscar por nombre, marca, modelo o código (ej. iPhone 17, LNB043)" autocomplete="off"></label>
     <label><span>Línea</span><select id="fLinea"><option value="">Todas</option></select></label>
@@ -139,5 +166,6 @@
 <script src="js/products.js"></script>
 <script src="js/images.js"></script>
 <script src="js/script.js"></script>
+<script>if(!window.PRODUCTOS){var a=document.getElementById("aviso");a.style.display="block";}</script>
 </body>
 </html>

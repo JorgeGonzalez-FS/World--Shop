@@ -52,7 +52,8 @@ function chips(p) {
 let comp = [];
 function card(p) {
   const msg = mensajeProducto(p);
-  return `<article class="card">${foto(p)}<div class="cb">
+  const cond=(p.especificaciones||{})['Condición'];
+  return `<article class="card">${cond?`<span class="ribbon">${esc(cond)}</span>`:''}${foto(p)}<div class="cb">
     <span class="brand">${esc(p.marca)}</span>
     <h3 class="name" data-id="${p.id}">${esc(p.nombre)}</h3>
     <span class="code">Cód. ${esc(p.codigo)} · ${esc(p.categoria)}</span>${chips(p)}
@@ -102,6 +103,7 @@ function detalle(id) {
     <table><tr><td>Código</td><td>${esc(p.codigo)}</td></tr><tr><td>Categoría</td><td>${esc(p.categoria)}</td></tr>${specs}</table>
     <p class="note">Especificaciones: solo las que figuran en la descripción de la lista de precios.</p>
     <div class="price">${usd(p.precioUSD)}</div><div class="bs">${bs(p.precioUSD)}</div>
+    <div class="finbox"><b>💳 Financiamiento</b><span>Cashea 0% de inicial: nivel 3 y 4 en 6 cuotas · nivel 5 en 9 · nivel 6 en 12. También Krece.</span><span>🚚 Delivery gratis en Puerto Ordaz y San Félix · 📦 Envíos a todo el país por Zoom y MRW.</span></div>
     <p class="muted"><b>Pagos:</b> dólares físicos, USDT, PayPal, Zelle o bolívares a tasa BCV. Condiciones por método: por confirmar con la tienda.</p>
     <a class="btn wa" target="_blank" rel="noopener" href="${waLink(mensajeProducto(p))}">Consultar disponibilidad</a></div></div>`;
   $('#dlg').showModal();
@@ -162,6 +164,17 @@ document.addEventListener('change', e => {
 });
 ['q', 'pMin', 'pMax'].forEach(i => $('#' + i).addEventListener('input', filtrar));
 ['fLinea', 'fCat', 'fMarca', 'orden'].forEach(i => $('#' + i).addEventListener('change', filtrar));
+$('#quick').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  $('#filtros').reset();
+  if (b.dataset.p) { const [a, z] = b.dataset.p.split('-'); $('#pMin').value = a; $('#pMax').value = z; }
+  if (b.dataset.q) $('#q').value = b.dataset.q;
+  filtrar();
+});
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold: .08});
+  document.querySelectorAll('.sec,.benef').forEach(el => { el.classList.add('rv'); io.observe(el); });
+}
 $('#limpiar').addEventListener('click', () => { $('#filtros').reset(); filtrar(); });
 $('#mas').addEventListener('click', () => { est.pag++; pintar(); });
 $('#compVer').addEventListener('click', comparar);
@@ -187,3 +200,38 @@ $('#formContacto').addEventListener('submit', e => {
   window.open(waLink(`Hola, World Shop. Soy ${f.nombre.value}. ${f.mensaje.value}\nSucursal de interés: ${f.sucursal.value}.`), '_blank', 'noopener');
 });
 init();
+
+/* ===== Portada 3D ===== */
+(function hero() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // palabras rotativas
+  const words = ['teléfonos', 'televisores', 'aires acondicionados', 'neveras', 'laptops', 'lavadoras'];
+  const rot = $('#rot'); let wi = 0;
+  if (rot && !reduce) setInterval(() => {
+    rot.classList.add('out');
+    setTimeout(() => { wi = (wi + 1) % words.length; rot.textContent = words[wi]; rot.classList.remove('out'); }, 350);
+  }, 2400);
+  // etiquetas con datos reales del catálogo
+  document.querySelectorAll('.dev[data-code]').forEach(d => {
+    const p = P.find(x => x.codigo === d.dataset.code); if (!p) { d.hidden = true; return; }
+    const nom = p.nombre.replace(/\s*\+\s*\d+\s*RAM/i, '').slice(0, 34);
+    d.querySelector('.tag').innerHTML = `<b>${esc(nom)}</b><span>${usd(p.precioUSD)}</span>`;
+    d.addEventListener('click', () => detalle(p.id));
+  });
+  // contador animado
+  const tp = $('#totalProd');
+  if (tp && !reduce) { const total = P.length, t0 = performance.now();
+    (function tick(t) { const k = Math.min(1, (t - t0) / 1400); tp.textContent = Math.round(total * (1 - Math.pow(1 - k, 3))).toLocaleString('de-DE'); if (k < 1) requestAnimationFrame(tick); })(t0); }
+  // parallax 3D con el mouse / giroscopio suave
+  const scene = $('#scene'), stage = $('#stage'); if (!scene || reduce) return;
+  let tx = -12, ty = 18, cx = tx, cy = ty, auto = true;
+  scene.addEventListener('pointermove', e => { const r = scene.getBoundingClientRect(); auto = false;
+    ty = ((e.clientX - r.left) / r.width - .5) * 50; tx = -((e.clientY - r.top) / r.height - .5) * 34; });
+  scene.addEventListener('pointerleave', () => { auto = true; });
+  (function loop(t) {
+    if (auto) { ty = Math.sin(t / 2600) * 22; tx = -10 + Math.cos(t / 3100) * 7; }
+    cx += (tx - cx) * .07; cy += (ty - cy) * .07;
+    stage.style.transform = `rotateX(${cx}deg) rotateY(${cy}deg)`;
+    requestAnimationFrame(loop);
+  })(0);
+})();
