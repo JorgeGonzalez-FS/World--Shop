@@ -53,3 +53,20 @@ Direcciones, horarios, línea de WhatsApp por sucursal, logo oficial en alta res
 
 ## Financiamiento
 Sección "Financiamiento" en `index.html` (id `promociones`): Cashea 0% inicial niveles 3/4/5/6 (6, 6, 9 y 12 cuotas) y Krece. Editar el texto directamente en esa sección.
+
+## Pedido por WhatsApp y sucursal
+- Cada producto tiene "Agregar al pedido"; el botón 🛒 del encabezado abre el pedido y lo envía completo en un solo mensaje.
+- "Mi sucursal de preferencia" se guarda en el navegador y se añade a todos los mensajes. Para dirigir los mensajes a un número distinto por sucursal, agrega `telefono:'04xx-xxxxxxx'` a esa sucursal en `CONFIG.sucursales` (js/script.js).
+
+## Fotos
+1. Copia cada foto a `assets/products/` con el **código del producto** como nombre (ej. `TLF011.jpg`, también `.png` o `.webp`; puede ir en subcarpetas).
+2. Doble clic en `scripts/actualizar_fotos.bat` (o `python scripts/generar_imagenes.py`): registra las fotos en `js/images.js`.
+3. Recarga la página. Para buscarlas automáticamente: `scripts/descargar_fotos.bat` (ya actualiza images.js).
+Consejo de rapidez: fotos de unos 700 px de lado y menos de 100 KB cada una (JPG/WebP).
+
+## Cuentas de clientes y administrador (MODO DEMOSTRACIÓN)
+- Botón 👤 del encabezado: **Crear cuenta** (nombres, apellidos, cédula, fecha de nacimiento, correo, teléfono, contraseña segura) e **Iniciar sesión**. Para **enviar un pedido** (🛒) hay que tener sesión de cliente.
+- Administrador: la primera vez, en la ventana de inicio de sesión, usa "Soy el administrador: configurar acceso" y crea tu correo y contraseña. Desde tu sesión ves el panel (clientes, pedidos, exportar CSV, tasa BCV).
+- Seguridad actual: contraseñas con hash PBKDF2 + sal (nunca en texto plano), validación de cédula/teléfono/edad (+18), bloqueo de 60 s tras 5 intentos fallidos.
+- **Límite importante:** esta versión no tiene servidor. Los datos de cada cliente se guardan solo en SU navegador, por lo que **el administrador no verá a los clientes que se registren desde otros dispositivos**, y cualquiera con conocimientos técnicos puede manipular lo guardado en su propio navegador. Sirve para demostrar el flujo al dueño, **no para recoger datos reales de clientes** (cédula, fecha de nacimiento).
+- Para producción: conectar un servicio de autenticación y base de datos (por ejemplo Supabase o Firebase), con reglas de acceso para que cada cliente solo vea sus datos y solo el administrador vea la lista. Además, informar el uso de datos personales y cuidar su resguardo. El archivo `js/auth.js` concentra toda la lógica para sustituirla.
