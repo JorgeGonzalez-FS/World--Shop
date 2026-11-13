@@ -403,6 +403,11 @@ html.eco .glow{filter:blur(60px);animation:none}
 @media(min-width:1025px){.scene{padding-left:14px}}
 @media(max-width:1320px){.burger{display:block;min-width:44px;min-height:44px}.nav{display:none;position:absolute;top:62px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:6px 18px 12px;border-bottom:1px solid var(--line);box-shadow:0 16px 24px rgba(0,0,0,.12)}.nav.open{display:flex}.nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:16px}}
 
+/* ===== Titular: palabra rotativa en su propia línea (sin saltos de diseño) ===== */
+.hero h1 .rotw{display:block;white-space:nowrap;min-height:1.15em;overflow:visible}
+.hero h1 .rotw em{display:inline-block;white-space:nowrap;padding-bottom:.08em;will-change:transform,opacity}
+.hero h1 .rest{display:block}
+
 </style>
 </head>
 <body>
@@ -427,7 +432,7 @@ html.eco .glow{filter:blur(60px);animation:none}
   <div class="glow g1"></div><div class="glow g2"></div>
   <div class="wrap hero-in hero-grid"><div class="hero-txt">
     <p class="eyebrow"><span class="dot"></span> Teléfonos · Tecnología · Línea blanca</p>
-    <h1>Tus <span class="rotw"><em id="rot">teléfonos</em></span> al mejor precio, a un mensaje de distancia.</h1>
+    <h1><span class="rotw">Tus <em id="rot">teléfonos</em></span><span class="rest">al mejor precio, a un mensaje de distancia.</span></h1>
     <p class="lead">Explora <strong id="totalProd">—</strong> productos con precio en dólares y bolívares, compara modelos y habla con un vendedor por WhatsApp en segundos.</p>
     <div class="hero-cta"><a class="btn big" href="#catalogo">Explorar catálogo →</a><a class="btn ghost big" href="#sucursales">Encuentra tu tienda</a></div>
     <ul class="stats"><li><b>5</b><span>sucursales</span></li><li><b id="stCat">19</b><span>categorías</span></li><li><b id="stMarca">—</b><span>marcas</span></li><li><b>0%</b><span>inicial con Cashea</span></li><li><b>Gratis</b><span>delivery en Pto. Ordaz y San Félix</span></li></ul></div>
@@ -1044,7 +1049,7 @@ pintarSuc(0);
   if (heroEl && 'IntersectionObserver' in window) new IntersectionObserver(es => heroEl.classList.toggle('paused', !es[0].isIntersecting)).observe(heroEl);
   document.addEventListener('visibilitychange', () => document.documentElement.classList.toggle('tabhid', document.hidden));
   // palabras rotativas
-  const words = ['teléfonos', 'televisores', 'aires acondicionados', 'neveras', 'laptops', 'lavadoras'];
+  const words = ['teléfonos', 'televisores', 'aires', 'neveras', 'laptops', 'lavadoras'];
   const rot = $('#rot'); let wi = 0;
   if (rot && !reduce) setInterval(() => {
     rot.classList.add('out');

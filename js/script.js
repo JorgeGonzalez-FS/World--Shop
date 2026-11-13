@@ -367,13 +367,15 @@ pintarSuc(0);
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const cn = navigator.connection || {};
   // Modo ligero: equipos modestos, ahorro de datos o animaciones desactivadas -> escena 3D estática y sin efectos continuos
-  const lite = reduce || cn.saveData || (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+  // lite: solo si el usuario pide menos movimiento o ahorro de datos. eco: equipos modestos (mantiene el movimiento, quita efectos pesados)
+  const lite = reduce || cn.saveData;
   if (lite) document.documentElement.classList.add('lite');
+  else if ((navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4) document.documentElement.classList.add('eco');
   const heroEl = document.querySelector('.hero');
   if (heroEl && 'IntersectionObserver' in window) new IntersectionObserver(es => heroEl.classList.toggle('paused', !es[0].isIntersecting)).observe(heroEl);
   document.addEventListener('visibilitychange', () => document.documentElement.classList.toggle('tabhid', document.hidden));
   // palabras rotativas
-  const words = ['teléfonos', 'televisores', 'aires acondicionados', 'neveras', 'laptops', 'lavadoras'];
+  const words = ['teléfonos', 'televisores', 'aires', 'neveras', 'laptops', 'lavadoras'];
   const rot = $('#rot'); let wi = 0;
   if (rot && !reduce) setInterval(() => {
     rot.classList.add('out');
