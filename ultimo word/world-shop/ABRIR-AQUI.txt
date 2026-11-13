@@ -1,0 +1,8 @@
+CÓMO ABRIR LA PÁGINA (Windows)
+
+1. NO abras index.html desde dentro del ZIP. Se vería sin diseño y sin productos.
+2. Clic derecho en world-shop.zip -> "Extraer todo..." -> Extraer.
+3. Entra a la carpeta extraída "world-shop" y haz doble clic en index.html (Opera o Chrome).
+   La carpeta debe contener: index.html, css, js y assets, todos juntos.
+
+Alternativa sin carpetas: World-Shop-TODO-EN-UNO.html funciona solo (tiene todo incluido).

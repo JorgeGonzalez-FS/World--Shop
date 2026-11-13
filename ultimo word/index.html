@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0c">
+<title>World Shop · Catálogo digital (propuesta)</title>
+<meta name="description" content="Propuesta de catálogo digital para World Shop: teléfonos, tecnología y línea blanca con consulta directa por WhatsApp.">
+<link rel="icon" type="image/png" href="assets/logo/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="aviso" style="background:#fff3cd;color:#664d03;border:2px solid #ffda6a;padding:14px;font:16px/1.4 Arial,sans-serif;margin:0">
+<b>La página se abrió incompleta.</b> Esto pasa cuando abres <code>index.html</code> dentro del ZIP o fuera de su carpeta. Solución: haz clic derecho en <code>world-shop.zip</code> → <b>Extraer todo…</b>, abre la carpeta extraída <code>world-shop</code> y entonces abre <code>index.html</code>. O abre directamente <b>World-Shop-TODO-EN-UNO.html</b>, que funciona solo.</div>
+<a class="skip" href="#catalogo">Saltar al catálogo</a>
+<div class="annc" role="region" aria-label="Avisos"><div class="annc-t" id="annc"><span>🚚 Delivery GRATIS en Puerto Ordaz y San Félix</span><span>💳 Cashea con 0% de inicial · También Krece</span><span>📦 Enviamos a toda Venezuela por Zoom y MRW</span><span>💬 Cotiza por WhatsApp en segundos</span></div></div>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#inicio" aria-label="World Shop, inicio"><img src="assets/logo/worldshop-logo-provisional.png" alt="World Shop" height="34"></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">☰</button>
+    <nav id="nav" class="nav" aria-label="Principal">
+      <a href="#categorias">Categorías</a><a href="#catalogo">Catálogo</a><a href="#promociones">Financiamiento</a>
+      <a href="#envios">Envíos</a><a href="#pagos">Pagos</a><a href="#sucursales">Sucursales</a><a href="#faq">Ayuda</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="btn ghost small userbtn" id="userBtn" aria-label="Mi cuenta">👤 <span class="cl">Ingresar</span></button>
+    <button class="btn small cartbtn" id="cartBtn" aria-label="Ver mi pedido">🛒 <span class="cl">Pedido</span> <span id="cartN">0</span></button>
+    <button class="btn ghost small" id="btnTasa">Tasa BCV: <span id="tasaLabel">sin definir</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="wrap hero-in hero-grid"><div class="hero-txt">
+    <p class="eyebrow"><span class="dot"></span> Teléfonos · Tecnología · Línea blanca</p>
+    <h1>Tus <span class="rotw"><em id="rot">teléfonos</em></span> al mejor precio, a un mensaje de distancia.</h1>
+    <p class="lead">Explora <strong id="totalProd">—</strong> productos con precio en dólares y bolívares, compara modelos y habla con un vendedor por WhatsApp en segundos.</p>
+    <div class="hero-cta"><a class="btn big" href="#catalogo">Explorar catálogo →</a><a class="btn ghost big" href="#sucursales">Encuentra tu tienda</a></div>
+    <ul class="stats"><li><b>5</b><span>sucursales</span></li><li><b id="stCat">19</b><span>categorías</span></li><li><b id="stMarca">—</b><span>marcas</span></li><li><b>0%</b><span>inicial con Cashea</span></li><li><b>Gratis</b><span>delivery en Pto. Ordaz y San Félix</span></li></ul></div>
+    <div class="scene" id="scene" aria-label="Vista 3D de productos destacados">
+      <div class="stage" id="stage">
+        <div class="ring r1"></div><div class="ring r2"></div>
+        <button class="dev phone" data-code="TLF011" aria-label="Ver iPhone"><i class="notch"></i><i class="scr"></i><i class="cam"></i><span class="tag"></span></button>
+        <button class="dev tv" data-code="LNB861" aria-label="Ver televisor"><i class="scr"></i><i class="stand"></i><span class="tag"></span></button>
+        <button class="dev ac" data-code="LNB099" aria-label="Ver aire acondicionado"><i class="vent"></i><i class="led"></i><span class="tag"></span></button>
+        <button class="dev fridge" data-code="LNB539" aria-label="Ver refrigerador"><i class="door a"></i><i class="door b"></i><span class="tag"></span></button>
+        <button class="dev lap" data-code="LTP043" aria-label="Ver laptop"><i class="scr"></i><i class="base"></i><span class="tag"></span></button>
+        <i class="pt p1"></i><i class="pt p2"></i><i class="pt p3"></i><i class="pt p4"></i><i class="pt p5"></i><i class="pt p6"></i>
+      </div>
+    </div>
+  
+</div>
+</section>
+<div class="marquee" aria-hidden="true"><div id="marq"></div></div>
+
+<section class="benef"><div class="wrap benef-in">
+  <div><b>🚚 Delivery gratis</b><span>Puerto Ordaz y San Félix</span></div>
+  <div><b>💳 Cashea y Krece</b><span>0% de inicial con Cashea</span></div>
+  <div><b>📦 Envíos nacionales</b><span>Zoom y MRW a todo el país</span></div>
+  <div><b>💬 Atención directa</b><span>Un vendedor por WhatsApp</span></div>
+</div></section>
+
+<section id="categorias" class="sec"><div class="wrap">
+  <h2>Categorías</h2>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+  <h2>Productos destacados</h2>
+  <div class="grid" id="destacados"></div>
+</div></section>
+
+<section id="catalogo" class="sec"><div class="wrap">
+  <h2>Catálogo completo</h2>
+  <div class="misuc">📍 <label>Mi sucursal de preferencia <select id="miSuc"><option value="">Sin elegir</option></select></label><span class="muted">Los mensajes de WhatsApp saldrán dirigidos a esa sucursal.</span></div>
+  <div class="quick" id="quick" aria-label="Atajos de precio">
+    <span>Atajos:</span><button type="button" data-p="0-200">Hasta $200</button><button type="button" data-p="200-500">$200 – $500</button><button type="button" data-p="500-1000">$500 – $1.000</button><button type="button" data-p="1000-">Más de $1.000</button><button type="button" data-q="iphone">iPhone</button><button type="button" data-q="samsung">Samsung</button><button type="button" data-q="aire split">Aires Split</button><button type="button" data-q="televisor">Televisores</button>
+  </div>
+  <form class="filters" id="filtros" role="search" onsubmit="return false">
+    <label class="f-search"><span class="sr">Buscar</span><input id="q" type="search" placeholder="Buscar por nombre, marca, modelo o código (ej. iPhone 17, LNB043)" autocomplete="off"></label>
+    <label><span>Línea</span><select id="fLinea"><option value="">Todas</option></select></label>
+    <label><span>Categoría</span><select id="fCat"><option value="">Todas</option></select></label>
+    <label><span>Marca</span><select id="fMarca"><option value="">Todas</option></select></label>
+    <label><span>Precio mín. (USD)</span><input id="pMin" type="number" min="0" inputmode="numeric" placeholder="0"></label>
+    <label><span>Precio máx. (USD)</span><input id="pMax" type="number" min="0" inputmode="numeric" placeholder="∞"></label>
+    <label><span>Ordenar por</span>
+      <select id="orden"><option value="rel">Relevancia</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option><option value="nombre">Nombre</option><option value="marca">Marca</option></select></label>
+    <button type="button" class="btn ghost small" id="limpiar">Limpiar filtros</button>
+  </form>
+  <p class="count" id="contador" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+  <div class="more"><button class="btn" id="mas">Ver más productos</button></div>
+</div></section>
+
+<section id="promociones" class="sec fin-sec"><div class="wrap">
+  <div class="fin-head"><h2>Financiamiento</h2><span class="stk s1">0% INICIAL</span><span class="stk s2">¡Estrena hoy!</span></div>
+  <div class="fin-grid">
+    <article class="cashea">
+      <span class="badge">💳 Cashea</span><h3>Llévatelo hoy y paga en cuotas</h3>
+      <p class="muted-w">Elige tu nivel y mira en cuántas cuotas puedes pagar, con 0% de inicial.</p>
+      <div class="lvls" id="lvls" role="tablist"></div>
+      <div class="lvl-out" id="lvlOut" aria-live="polite"></div>
+    </article>
+    <article class="krece"><span class="stk s3">¡También!</span><span class="badge">✨ Krece</span><h3>Financia con Krece</h3>
+      <p>Trabajamos Krece con sus normas habituales. Pregunta y te ayudamos a tramitarlo.</p>
+      <a class="btn small wa" target="_blank" rel="noopener" id="waKrece">Consultar Krece</a></article>
+    <article class="how"><h3>Compra en 4 pasos</h3>
+      <ol><li><b>1</b> Elige tu equipo en el catálogo</li><li><b>2</b> Escríbenos por WhatsApp</li><li><b>3</b> Te asesoramos con Cashea o Krece</li><li><b>4</b> Recíbelo: delivery gratis en Pto. Ordaz y San Félix 🚚</li></ol>
+      <a class="btn small" href="#catalogo">Elegir mi equipo →</a></article>
+  </div>
+  <p class="muted">Sujeto a aprobación y condiciones de cada plataforma. Disponibilidad de productos para financiar: por confirmar en tienda.</p>
+</div></section>
+
+<section id="envios" class="sec env"><div class="wrap">
+  <h2>Delivery y envíos</h2>
+  <div class="env-grid">
+    <article class="e-card e-local">
+      <span class="stk s1">¡GRATIS!</span>
+      <div class="truck3d" aria-hidden="true"><span>🚚</span></div>
+      <span class="badge">📍 Puerto Ordaz y San Félix</span>
+      <h3>Delivery sin ningún costo</h3>
+      <p>Te llevamos tu compra a cualquier parte de Puerto Ordaz o San Félix.</p>
+      <div class="road" aria-hidden="true"></div>
+    </article>
+    <article class="e-card e-nac">
+      <span class="badge">🇻🇪 Todo el país</span>
+      <h3>Enviamos a cualquier parte de Venezuela</h3>
+      <p>Mandamos cualquier producto mediante nuestros transportes aliados:</p>
+      <div class="carriers"><b>ZOOM</b><b>MRW</b></div>
+      <svg class="route" viewBox="0 0 520 190" role="img" aria-label="Esquema de envíos desde World Shop a todo el país">
+        <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#00b0f0"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+        <path id="r1" d="M70 95 C 150 10, 250 10, 330 40" fill="none" stroke="url(#rg)" stroke-width="3" stroke-dasharray="7 8" class="dash"/>
+        <path id="r2" d="M70 95 C 160 95, 300 110, 440 95" fill="none" stroke="url(#rg)" stroke-width="3" stroke-dasharray="7 8" class="dash"/>
+        <path id="r3" d="M70 95 C 150 180, 270 190, 360 150" fill="none" stroke="url(#rg)" stroke-width="3" stroke-dasharray="7 8" class="dash"/>
+        <g class="pin home"><circle cx="70" cy="95" r="16"/><circle cx="70" cy="95" r="16" class="pulse"/><text x="70" y="100" text-anchor="middle">WS</text></g>
+        <g class="pin"><circle cx="330" cy="40" r="9"/><text x="345" y="36">Tu ciudad</text></g>
+        <g class="pin"><circle cx="440" cy="95" r="9"/><text x="388" y="125">Tu pueblo</text></g>
+        <g class="pin"><circle cx="360" cy="150" r="9"/><text x="375" y="165">Cualquier lugar</text></g>
+        <text font-size="22"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#r1"/></animateMotion>📦</text>
+        <text font-size="22"><animateMotion dur="6s" repeatCount="indefinite" begin="1s"><mpath href="#r2"/></animateMotion>📦</text>
+        <text font-size="22"><animateMotion dur="5.5s" repeatCount="indefinite" begin="2s"><mpath href="#r3"/></animateMotion>📦</text>
+      </svg>
+      <a class="btn small wa" target="_blank" rel="noopener" id="waEnvio">Consultar envío</a>
+    </article>
+  </div>
+  <ol class="steps">
+    <li><i>🛒</i><b>Eliges</b><span>tu producto</span></li>
+    <li><i>💬</i><b>Confirmas</b><span>por WhatsApp</span></li>
+    <li><i>📦</i><b>Lo preparamos</b><span>y lo despachamos</span></li>
+    <li><i>🏠</i><b>Lo recibes</b><span>donde estés</span></li>
+  </ol>
+</div></section>
+
+<section id="pagos" class="sec pay-sec"><div class="wrap">
+  <h2>Métodos de pago</h2>
+  <div class="pay-grid">
+    <div class="cc-wrap" aria-hidden="true"><div class="cc"><div class="cc-top"><span class="cc-logo">WS</span><span>WORLD SHOP</span></div><div class="cc-chip"></div><div class="cc-txt">PAGA COMO PREFIERAS</div><div class="cc-sub">Dólares · USDT · PayPal · Zelle · Bs.</div></div><div class="cc cc2"></div></div>
+    <div class="paycards" id="paycards"></div>
+  </div>
+  <p class="muted">Toca o pasa el cursor sobre cada método. El equivalente en bolívares se calcula con la tasa BCV configurada y puede cambiar. Las condiciones por método se confirman con el vendedor.</p>
+</div></section>
+
+<section id="sucursales" class="sec suc-sec"><div class="wrap">
+  <h2>Nuestras sucursales</h2>
+  <p class="suc-lead"><b id="sucN">5</b> tiendas para atenderte. Elige una, mira cómo llegar y cotiza directamente con ella.</p>
+  <div class="suc-grid">
+    <div class="suc-list" id="sucList" role="tablist" aria-label="Sucursales"></div>
+    <div class="suc-stage">
+      <div class="shop-wrap" aria-hidden="true"><div class="shop3d" id="shop3d">
+        <div class="sh-face sh-front">
+          <div class="sh-sign"><b>WORLD SHOP</b><span id="shNum">01</span></div>
+          <div class="sh-awn"></div>
+          <div class="sh-win"><i>📱</i><i>📺</i><i>💻</i><i>🧊</i></div>
+          <div class="sh-door"><u></u></div>
+          <div class="sh-open">ABIERTO PARA TI</div>
+        </div>
+        <div class="sh-face sh-side"></div><div class="sh-face sh-top"></div>
+      </div><div class="sh-ground"></div></div>
+      <div class="suc-info" id="sucInfo" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="muted">Todas las sucursales atienden de lunes a sábado, de 8:30 AM a 8:00 PM. Las direcciones exactas se completarán con la información oficial de cada tienda.</p>
+</div></section>
+
+<section id="faq" class="sec faq-sec"><div class="wrap">
+  <div class="sec-head"><div><h2>Preguntas frecuentes</h2><p class="sub">Resuelve tus dudas en segundos.</p></div>
+    <label class="faq-q"><span class="sr">Buscar en preguntas frecuentes</span><span aria-hidden="true">🔎</span><input id="faqQ" type="search" placeholder="Busca tu duda (ej. envío, Cashea, horario)" autocomplete="off"></label></div>
+  <div class="faq-chips" id="faqChips" role="group" aria-label="Temas">
+    <button type="button" class="on" data-c="">Todas</button><button type="button" data-c="compras">🛒 Compras</button><button type="button" data-c="envios">🚚 Envíos</button><button type="button" data-c="pagos">💳 Pagos y financiamiento</button><button type="button" data-c="tiendas">📍 Tiendas</button>
+  </div>
+  <div class="faq" id="faqList">
+    <details data-c="envios"><summary><i>🚚</i>¿Tienen delivery?</summary><p>Sí. Delivery sin costo a cualquier parte de Puerto Ordaz y San Félix.</p></details>
+    <details data-c="envios"><summary><i>📦</i>¿Envían a otras ciudades?</summary><p>Sí, enviamos cualquier producto a cualquier parte de Venezuela mediante Zoom y MRW.</p></details>
+    <details data-c="pagos"><summary><i>💳</i>¿Cómo funciona el financiamiento?</summary><p>Con Cashea tienes 0% de inicial para niveles 3, 4, 5 y 6: nivel 3 y 4 en 6 cuotas, nivel 5 en 9 cuotas y nivel 6 en 12 cuotas. También trabajamos Krece con sus normas habituales.</p></details>
+    <details data-c="pagos"><summary><i>💵</i>¿Qué métodos de pago aceptan?</summary><p>Dólares físicos, USDT, PayPal, Zelle y bolívares a tasa BCV. Las condiciones por método se confirman con el vendedor.</p></details>
+    <details data-c="pagos"><summary><i>🏷️</i>¿Los precios están en dólares?</summary><p>Sí, los precios de lista están en dólares. El equivalente en bolívares se calcula con la tasa BCV vigente y puede cambiar.</p></details>
+    <details data-c="tiendas"><summary><i>🕒</i>¿Cuál es el horario de atención?</summary><p>Todas nuestras sucursales atienden de lunes a sábado, de 8:30 AM a 8:00 PM.</p></details>
+    <details data-c="tiendas"><summary><i>📍</i>¿Cuántas sucursales tienen y dónde?</summary><p>Tenemos 5: C.C. Alta Vista I, C.C. Alta Vista II, C.C. Babilonia Mall Center, San Félix (entrada Calle Páez) y C.C. Orinokia Mall.</p></details>
+    <details data-c="compras"><summary><i>✅</i>¿Cómo sé si hay disponibilidad?</summary><p>Pulsa "Consultar por WhatsApp" en el producto y un vendedor te confirma disponibilidad y condiciones.</p></details>
+    <details data-c="compras"><summary><i>🛒</i>¿Puedo armar un pedido desde la página?</summary><p>Sí. Agrega los productos a tu pedido y envíalo completo por WhatsApp. Para enviarlo necesitas iniciar sesión o crear tu cuenta de cliente; para consultar un producto no hace falta.</p></details>
+    <details data-c="compras"><summary><i>⚖️</i>¿Puedo comparar productos?</summary><p>Sí, marca "Comparar" en hasta 3 productos y pulsa el botón Comparar para ver sus especificaciones y precios lado a lado.</p></details>
+  </div>
+  <p class="faq-none" id="faqNone" hidden>No encontramos esa pregunta. Escríbenos y te respondemos por WhatsApp 👇</p>
+  <div class="faq-cta"><span>¿No encontraste tu respuesta?</span><a class="btn wa" target="_blank" rel="noopener" id="waFaq">Preguntar por WhatsApp</a></div>
+</div></section>
+
+<section id="contacto" class="sec att-sec"><div class="wrap">
+  <h2>Atención al cliente</h2>
+  <div class="att-top">
+    <div class="att-hero"><span class="open-pill" id="openPill">…</span><h3>Estamos para ayudarte</h3><p>Atención de lunes a sábado, de 8:30 AM a 8:00 PM, en todas nuestras sucursales y por WhatsApp.</p></div>
+    <div class="att-ch">
+      <a class="ch c1" target="_blank" rel="noopener" id="chWa"><i>💬</i><b>WhatsApp</b><span>Respuesta directa de un vendedor</span></a>
+      <button type="button" class="ch c2" id="chBot"><i>🤖</i><b>Asistente</b><span>Respuestas al instante</span></button>
+      <a class="ch c3" href="#sucursales"><i>📍</i><b>Visítanos</b><span>5 sucursales</span></a>
+      <button type="button" class="ch c4" id="chCart"><i>🛒</i><b>Mi pedido</b><span>Envía tu lista completa</span></button>
+    </div>
+  </div>
+  <div class="att-body">
+    <form id="formContacto" class="cform" novalidate>
+      <h3>Escríbenos</h3>
+      <p class="muted" style="margin:0">Elige el tema y te abrimos WhatsApp con tu mensaje listo.</p>
+      <div class="topics" id="topics" role="group" aria-label="Tema de la consulta">
+        <button type="button" class="on" data-t="Cotizar un producto">💰 Cotizar</button><button type="button" data-t="Financiamiento (Cashea / Krece)">💳 Financiamiento</button><button type="button" data-t="Delivery y envíos">🚚 Envíos</button><button type="button" data-t="Métodos de pago">💵 Pagos</button><button type="button" data-t="Otra consulta">✨ Otro</button>
+      </div>
+      <div class="two"><label class="fld">Tu nombre<input name="nombre" required autocomplete="name"></label>
+      <label class="fld">Sucursal de interés<select name="sucursal" id="selSuc"></select></label></div>
+      <label class="fld">¿En qué te ayudamos?<textarea name="mensaje" id="msgC" rows="4" maxlength="500" required placeholder="Ej. Quiero un aire split de 12.000 BTU, ¿qué opciones tienen?"></textarea><small class="cnt2"><span id="msgN">0</span>/500</small></label>
+      <em class="err" id="e_cf"></em>
+      <button class="btn wa big" type="submit">💬 Enviar por WhatsApp</button>
+    </form>
+    <aside class="att-side">
+      <div class="side-card"><h4>🕒 Horario</h4><p><b>Lunes a sábado</b><br>8:30 AM – 8:00 PM</p><p class="muted">Domingos cerrado.</p></div>
+      <div class="side-card"><h4>📞 Teléfonos de las listas</h4><div class="tels" id="telefonos"></div><p class="muted">Por confirmar cuáles son WhatsApp y a qué sucursal pertenece cada uno.</p></div>
+      <div class="side-card"><h4>🚚 Delivery gratis</h4><p>En Puerto Ordaz y San Félix. Envíos a todo el país por Zoom y MRW.</p></div>
+    </aside>
+  </div>
+</div></section>
+
+<footer class="ftr"><div class="wrap">
+  <img src="assets/logo/worldshop-logo-provisional.png" alt="World Shop" height="28" class="ftr-logo">
+  <p>Propuesta de diseño de catálogo digital para World Shop. Precios y disponibilidad sujetos a confirmación en tienda.</p>
+  <p class="muted">Redes sociales oficiales: por verificar.</p>
+</div></footer>
+
+<div class="chat" id="chat"><button class="chat-btn" id="chatBtn" aria-expanded="false" aria-controls="chatBox"><span>💬</span> ¿Te ayudamos?</button>
+  <div class="chat-box" id="chatBox" hidden><div class="chat-h"><b>Asistente World Shop</b><button id="chatX" aria-label="Cerrar">✕</button></div>
+    <div class="chat-b" id="chatMsgs"></div><div class="chat-o" id="chatOpts"></div></div></div>
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">WhatsApp</a>
+
+<div class="bar" id="compBar" hidden><span id="compTxt"></span><button class="btn small" id="compVer">Comparar</button><button class="btn ghost small" id="compClr">Vaciar</button></div>
+
+<dialog id="dlg"><div class="dlg-in"><button class="x" id="dlgX" aria-label="Cerrar">✕</button><div id="dlgBody"></div></div></dialog>
+<dialog id="dlgAuth"><div class="dlg-in"><button class="x" id="authX" aria-label="Cerrar">✕</button><div id="authBody"></div></div></dialog>
+<dialog id="dlgCart"><div class="dlg-in"><button class="x" data-closec aria-label="Cerrar">✕</button>
+  <h3>🛒 Mi pedido</h3><div id="cartBody"></div></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<dialog id="dlgTasa"><div class="dlg-in"><button class="x" data-close aria-label="Cerrar">✕</button>
+  <h3>Tasa BCV</h3><p class="muted">Introduce la tasa oficial vigente (Bs. por USD). No se incluye una tasa por defecto para no mostrar datos desactualizados.</p>
+  <label>Bs. por USD<input id="tasaIn" type="number" step="0.01" min="0" inputmode="decimal"></label>
+  <label>Fecha de la tasa<input id="tasaFecha" type="date"></label>
+  <div class="row"><button class="btn" id="tasaOk">Guardar</button><button class="btn ghost" id="tasaBorrar">Quitar tasa</button></div></div></dialog>
+
+<script src="js/products.js" defer></script>
+<script src="js/images.js" defer></script>
+<script src="js/script.js" defer></script>
+<script src="js/auth.js" defer></script>
+<script>addEventListener("DOMContentLoaded",function(){if(!window.PRODUCTOS){document.getElementById("aviso").style.display="block";}});</script>
+</body>
+</html>
